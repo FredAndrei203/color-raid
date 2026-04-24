@@ -1,3 +1,3 @@
-class_name Colors extends Node
+class_name GlobalConsts extends Node
 
 enum Colors {RED, GREEN, BLUE}

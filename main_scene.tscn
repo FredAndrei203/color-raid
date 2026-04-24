@@ -2,25 +2,48 @@
 
 [ext_resource type="PackedScene" uid="uid://df7o0wch4gjiq" path="res://color_lane.tscn" id="1_0f027"]
 [ext_resource type="Script" uid="uid://bade2l6c2807g" path="res://main_scene.gd" id="1_2c62f"]
+[ext_resource type="PackedScene" uid="uid://b81jju8k1q5cs" path="res://helper_lane.tscn" id="2_nfk4m"]
 [ext_resource type="Script" uid="uid://bbj2iwiim83r1" path="res://game_rule.gd" id="3_gyfs4"]
 [ext_resource type="PackedScene" uid="uid://d3arrs4qb60yq" path="res://color_block.tscn" id="4_d5x1h"]
+[ext_resource type="Script" uid="uid://seidbpj41j2u" path="res://controller.gd" id="5_8mm7a"]
+[ext_resource type="Script" uid="uid://dfvc3fr6jcvek" path="res://block_container.gd" id="6_hq1ik"]
 
 [node name="MainScene" type="Node" unique_id=823844910]
 script = ExtResource("1_2c62f")
 
-[node name="ColorLane1" parent="." unique_id=959369704 instance=ExtResource("1_0f027")]
+[node name="LeftHelperLane" parent="." unique_id=959369704 instance=ExtResource("2_nfk4m")]
+position = Vector2(417, 590)
+color = 2
+
+[node name="ColorLane1" parent="." unique_id=1724671539 instance=ExtResource("1_0f027")]
 position = Vector2(496, 590)
 
 [node name="ColorLane2" parent="." unique_id=187248950 instance=ExtResource("1_0f027")]
 position = Vector2(576, 590)
-_color_pointer = 1
+color = 1
 
 [node name="ColorLane3" parent="." unique_id=710790667 instance=ExtResource("1_0f027")]
 position = Vector2(656, 590)
-_color_pointer = 2
+color = 2
 
-[node name="GameRule" type="Node" parent="." unique_id=2007805828 node_paths=PackedStringArray("lane1", "lane2", "lane3")]
+[node name="RightHelperLane" parent="." unique_id=2069586043 instance=ExtResource("2_nfk4m")]
+position = Vector2(736, 590)
+
+[node name="GameRule" type="Node" parent="." unique_id=2007805828 node_paths=PackedStringArray("block_cont")]
 script = ExtResource("3_gyfs4")
+block_cont = NodePath("../BlockContainer")
+
+[node name="Controller" type="Node" parent="." unique_id=814559284 node_paths=PackedStringArray("left_helper", "lane1", "lane2", "lane3", "right_helper", "game_rule")]
+script = ExtResource("5_8mm7a")
+left_helper = NodePath("../LeftHelperLane")
+lane1 = NodePath("../ColorLane1")
+lane2 = NodePath("../ColorLane2")
+lane3 = NodePath("../ColorLane3")
+right_helper = NodePath("../RightHelperLane")
+game_rule = NodePath("../GameRule")
+
+[node name="BlockContainer" type="Node2D" parent="." unique_id=1738465778 node_paths=PackedStringArray("lane1", "lane2", "lane3")]
+script = ExtResource("6_hq1ik")
 block_scene = ExtResource("4_d5x1h")
 lane1 = NodePath("../ColorLane1")
 lane2 = NodePath("../ColorLane2")

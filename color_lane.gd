@@ -6,11 +6,11 @@ const COLORS: Array[Color] = [
 		Color.DARK_BLUE
 ]
 
-@export var _color_pointer: Colors.Colors
+@export var color: GlobalConsts.Colors
 
 
 func _ready() -> void:
-	_set_color_to(COLORS[_color_pointer])
+	_set_color_to(COLORS[color])
 
 
 func _set_color_to(color: Color) -> void:
@@ -19,10 +19,10 @@ func _set_color_to(color: Color) -> void:
 
 
 func colorshift_left() -> void:
-	_color_pointer = (_color_pointer + 1) % 3
-	_set_color_to(COLORS[_color_pointer])
+	color = (color + 1) % 3
+	_set_color_to(COLORS[color])
 
 
 func colorshift_right() -> void:
-	_color_pointer = (_color_pointer + 1) % 3
-	_set_color_to(COLORS[_color_pointer])
+	color = (color - 1) % 3
+	_set_color_to(COLORS[color])

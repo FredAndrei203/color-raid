@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bb46yuubnx4ld"]
+
+[ext_resource type="PackedScene" uid="uid://df7o0wch4gjiq" path="res://color_lane.tscn" id="1_0f027"]
+[ext_resource type="Script" uid="uid://bade2l6c2807g" path="res://main_scene.gd" id="1_2c62f"]
+[ext_resource type="Script" uid="uid://bbj2iwiim83r1" path="res://game_rule.gd" id="3_gyfs4"]
+[ext_resource type="PackedScene" uid="uid://d3arrs4qb60yq" path="res://color_block.tscn" id="4_d5x1h"]
+
+[node name="MainScene" type="Node" unique_id=823844910]
+script = ExtResource("1_2c62f")
+
+[node name="ColorLane1" parent="." unique_id=959369704 instance=ExtResource("1_0f027")]
+position = Vector2(496, 590)
+
+[node name="ColorLane2" parent="." unique_id=187248950 instance=ExtResource("1_0f027")]
+position = Vector2(576, 590)
+_color_pointer = 1
+
+[node name="ColorLane3" parent="." unique_id=710790667 instance=ExtResource("1_0f027")]
+position = Vector2(656, 590)
+_color_pointer = 2
+
+[node name="GameRule" type="Node" parent="." unique_id=2007805828 node_paths=PackedStringArray("lane1", "lane2", "lane3")]
+script = ExtResource("3_gyfs4")
+block_scene = ExtResource("4_d5x1h")
+lane1 = NodePath("../ColorLane1")
+lane2 = NodePath("../ColorLane2")
+lane3 = NodePath("../ColorLane3")

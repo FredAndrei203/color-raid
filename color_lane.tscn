@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://df7o0wch4gjiq"]
+
+[ext_resource type="Script" uid="uid://cc2l1qxn6gpyv" path="res://color_lane.gd" id="1_vi2l6"]
+
+[node name="ColorLane" type="Node2D" unique_id=959369704]
+script = ExtResource("1_vi2l6")
+
+[node name="Background" type="ColorRect" parent="." unique_id=535557440]
+offset_left = -40.0
+offset_top = -857.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.186459, 0.18645903, 0.18645903, 1)
+
+[node name="BottomColor" type="ColorRect" parent="." unique_id=109140709]
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LaneColor" type="ColorRect" parent="." unique_id=1590416448]
+offset_left = -5.0
+offset_top = -857.0
+offset_right = 5.0
+offset_bottom = 40.0

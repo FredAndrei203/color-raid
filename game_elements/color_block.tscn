@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3arrs4qb60yq"]
 
-[ext_resource type="Script" uid="uid://c451xvqtk5vo6" path="res://color_block.gd" id="1_a04ic"]
+[ext_resource type="Script" uid="uid://c451xvqtk5vo6" path="res://game_elements/color_block.gd" id="1_a04ic"]
 
 [node name="ColorBlock" type="Node2D" unique_id=335105042]
 script = ExtResource("1_a04ic")

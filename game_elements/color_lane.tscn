@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://df7o0wch4gjiq"]
 
-[ext_resource type="Script" uid="uid://cc2l1qxn6gpyv" path="res://color_lane.gd" id="1_vi2l6"]
+[ext_resource type="Script" uid="uid://cc2l1qxn6gpyv" path="res://game_elements/color_lane.gd" id="1_vi2l6"]
 
 [node name="ColorLane" type="Node2D" unique_id=959369704]
 script = ExtResource("1_vi2l6")

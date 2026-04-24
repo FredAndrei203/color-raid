@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3arrs4qb60yq" path="res://game_elements/color_block.tscn" id="4_d5x1h"]
 [ext_resource type="Script" uid="uid://seidbpj41j2u" path="res://game_elements/controller.gd" id="5_8mm7a"]
 [ext_resource type="Script" uid="uid://dfvc3fr6jcvek" path="res://game_elements/block_container.gd" id="6_hq1ik"]
-[ext_resource type="Script" uid="uid://bafthm0l7heun" path="res://hud.gd" id="7_nfk4m"]
+[ext_resource type="PackedScene" uid="uid://brbuwqapckt76" path="res://gui/hud.tscn" id="7_nfk4m"]
 
 [node name="MainScene" type="Node" unique_id=823844910]
 script = ExtResource("1_2c62f")
@@ -54,90 +54,12 @@ lanes = [NodePath("../ColorLane1"), NodePath("../ColorLane2"), NodePath("../Colo
 wait_time = 30.0
 one_shot = true
 
-[node name="HUD" type="Control" parent="." unique_id=903563480]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("7_nfk4m")
-
-[node name="TimerTitleLabel" type="Label" parent="HUD" unique_id=2005974569]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -34.0
-offset_top = -40.0
-offset_right = 34.0
-offset_bottom = -17.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
-text = "Time left"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TimerLabel" type="Label" parent="HUD" unique_id=1678321315]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -50.0
-offset_right = 20.0
-offset_bottom = -27.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 49
-text = "30"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScoreTitleLabel" type="Label" parent="HUD" unique_id=1263738905]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -21.0
-offset_top = 75.0
-offset_right = 22.0
-offset_bottom = 98.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
-text = "Score"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="HUD" unique_id=325576093]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -21.0
-offset_top = 18.0
-offset_right = 22.0
-offset_bottom = 82.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 46
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="HUD" parent="." unique_id=682855949 instance=ExtResource("7_nfk4m")]
 
 [connection signal="game_ended" from="GameRule" to="." method="_on_game_rule_game_ended"]
 [connection signal="score_updated" from="GameRule" to="." method="_on_game_rule_score_updated"]
 [connection signal="timeout" from="Timer" to="GameRule" method="_on_timer_timeout"]
+[connection signal="game_started" from="HUD" to="." method="_on_hud_game_started"]
 
 [editable path="LeftHelperLane"]
 [editable path="RightHelperLane"]

@@ -7,7 +7,7 @@ script = ExtResource("1_vi2l6")
 
 [node name="Background" type="ColorRect" parent="." unique_id=535557440]
 offset_left = -40.0
-offset_top = -857.0
+offset_top = -550.0
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.186459, 0.18645903, 0.18645903, 1)
@@ -19,6 +19,6 @@ offset_bottom = 40.0
 
 [node name="LaneColor" type="ColorRect" parent="." unique_id=1590416448]
 offset_left = -5.0
-offset_top = -857.0
+offset_top = -550.0
 offset_right = 5.0
 offset_bottom = 40.0

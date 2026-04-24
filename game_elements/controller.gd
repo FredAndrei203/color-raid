@@ -4,7 +4,7 @@ class_name Controller extends Node
 
 @export var lanes: Array[ColorLane]
 
-var enabled: bool = true
+var enabled: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !enabled:

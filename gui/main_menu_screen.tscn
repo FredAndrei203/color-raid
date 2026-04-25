@@ -51,7 +51,7 @@ vertical_alignment = 1
 
 [node name="PlayButton" type="Button" parent="MainMenuScreen/MenuCont" unique_id=1049304204]
 layout_mode = 2
-text = "Play Button"
+text = "Play"
 
 [node name="GameOverCont" type="BoxContainer" parent="MainMenuScreen" unique_id=625965125]
 unique_name_in_owner = true

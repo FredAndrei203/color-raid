@@ -4,6 +4,8 @@ signal game_ended
 signal score_updated(score: int)
 
 @export var timer: Timer
+@export var block_container: BlockContainer
+
 
 var score: int
 var bonus_time: float = 5
@@ -34,25 +36,23 @@ func start_level() -> void:
 	score_updated.emit(score)
 	bonus_time = GlobalConsts.DEFAULT_BONUS_TIME
 	penalty_time = GlobalConsts.DEFAULT_PENALTY_TIME
-	$BlockContainer.initialize_lanes()
 	timer.start(GlobalConsts.DEFAULT_TIMER_LENGTH)
 
 
 func judge_current_state(event: InputEvent) -> void:
-	var block: ColorBlock = $BlockContainer.block_queue.front()
+	var block: ColorBlock = block_container.block_queue.front()
 	if block.color == block.color_lane.color:
 		_handle_reward()
 	else:
 		_handle_punishment()
 	score_updated.emit(score)
-	$BlockContainer.dequeue_block()
-	$BlockContainer.enqueue_block()
+	block_container.dequeue_block()
+	block_container.enqueue_block()
 	if game_is_over:
 		game_over()
 
 
 func game_over() -> void:
-	$BlockContainer.reset_container()
 	game_ended.emit()
 
 

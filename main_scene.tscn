@@ -15,14 +15,15 @@ script = ExtResource("1_2c62f")
 [node name="ColorLanes" parent="." unique_id=1867480858 instance=ExtResource("2_nfk4m")]
 visible = false
 
-[node name="GameRule" type="Node" parent="." unique_id=2007805828 node_paths=PackedStringArray("timer")]
-script = ExtResource("3_gyfs4")
-timer = NodePath("../Timer")
-
-[node name="BlockContainer" type="Node2D" parent="GameRule" unique_id=1738465778 node_paths=PackedStringArray("color_lanes")]
+[node name="BlockContainer" type="Node2D" parent="." unique_id=1738465778 node_paths=PackedStringArray("color_lanes")]
 script = ExtResource("6_hq1ik")
 block_scene = ExtResource("4_d5x1h")
-color_lanes = NodePath("../../ColorLanes")
+color_lanes = NodePath("../ColorLanes")
+
+[node name="GameRule" type="Node" parent="." unique_id=2007805828 node_paths=PackedStringArray("timer", "block_container")]
+script = ExtResource("3_gyfs4")
+timer = NodePath("../Timer")
+block_container = NodePath("../BlockContainer")
 
 [node name="Controller" type="Node" parent="." unique_id=814559284 node_paths=PackedStringArray("game_rule", "color_lanes")]
 script = ExtResource("5_8mm7a")

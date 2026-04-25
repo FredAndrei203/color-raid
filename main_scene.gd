@@ -11,10 +11,12 @@ func start_game() -> void:
 	$HUD.show()
 	$MainMenuScreen.hide()
 	$Controller.enabled = true
+	$BlockContainer.initialize_lanes()
 	$GameRule.start_level()
 
 
 func game_ended() -> void:
+	$BlockContainer.reset_container()
 	$Controller.enabled = false
 	$ColorLanes.reset_lanes()
 	$ColorLanes.hide()

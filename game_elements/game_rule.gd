@@ -2,8 +2,7 @@ class_name GameRule extends Node
 
 signal game_ended
 signal score_updated(score: int)
-signal player_was_correct
-signal player_was_wrong
+signal player_was_correct(correct: bool)
 
 @export var timer: Timer
 @export var block_container: BlockContainer
@@ -19,7 +18,7 @@ func _handle_reward() -> void:
 	score += 1
 	timer.start(timer.time_left + bonus_time)
 	bonus_time *= 0.90
-	player_was_correct.emit()
+	player_was_correct.emit(true)
 
 
 func _handle_punishment() -> void:
@@ -31,7 +30,7 @@ func _handle_punishment() -> void:
 	else:
 		timer.start(resultant_time)
 		penalty_time *= 1.25
-	player_was_wrong.emit()
+	player_was_correct.emit(false)
 
 
 func start_level() -> void:
@@ -40,6 +39,7 @@ func start_level() -> void:
 	score_updated.emit(score)
 	bonus_time = GlobalConsts.DEFAULT_BONUS_TIME
 	penalty_time = GlobalConsts.DEFAULT_PENALTY_TIME
+	block_container.initialize_lanes()
 	timer.start(GlobalConsts.DEFAULT_TIMER_LENGTH)
 
 
@@ -57,6 +57,7 @@ func judge_current_state(event: InputEvent) -> void:
 
 
 func game_over() -> void:
+	block_container.reset_container()
 	game_ended.emit()
 
 

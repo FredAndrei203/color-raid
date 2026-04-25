@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ca32c7l1kpglf" path="res://game_elements/block_container.tscn" id="3_nfk4m"]
 [ext_resource type="Script" uid="uid://seidbpj41j2u" path="res://game_elements/controller.gd" id="5_8mm7a"]
 [ext_resource type="PackedScene" uid="uid://brbuwqapckt76" path="res://gui/hud.tscn" id="7_nfk4m"]
+[ext_resource type="Script" uid="uid://cycp34nc8fxwu" path="res://persistent_data.gd" id="8_7ycvg"]
 [ext_resource type="PackedScene" uid="uid://cwdp823hpoxtj" path="res://gui/main_menu_screen.tscn" id="8_66tet"]
 
 [node name="MainScene" type="Node" unique_id=823844910]
@@ -36,9 +37,11 @@ visible = false
 
 [node name="MainMenuScreen" parent="." unique_id=1782767518 instance=ExtResource("8_66tet")]
 
+[node name="PersistentData" type="Node" parent="." unique_id=2047920288]
+script = ExtResource("8_7ycvg")
+
 [connection signal="game_ended" from="GameRule" to="." method="_on_game_rule_game_ended"]
 [connection signal="player_was_correct" from="GameRule" to="." method="_on_game_rule_player_was_correct"]
-[connection signal="player_was_wrong" from="GameRule" to="." method="_on_game_rule_player_was_wrong"]
 [connection signal="score_updated" from="GameRule" to="." method="_on_game_rule_score_updated"]
 [connection signal="timeout" from="Timer" to="GameRule" method="_on_timer_timeout"]
 [connection signal="game_started" from="MainMenuScreen" to="." method="_on_main_menu_screen_game_started"]

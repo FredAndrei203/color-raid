@@ -87,16 +87,18 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FeedbackManager" type="Node" parent="." unique_id=316397675 node_paths=PackedStringArray("feedback_area")]
-script = ExtResource("2_u7rvv")
-feedbck_scene = ExtResource("3_nejoa")
-feedback_area = NodePath("FeedbackArea")
-
-[node name="FeedbackArea" type="Control" parent="FeedbackManager" unique_id=946268253]
-layout_mode = 3
-anchor_left = 0.3
-anchor_top = 0.2
-anchor_right = 0.7
-anchor_bottom = 0.8
+[node name="FeedbackManager" type="Control" parent="." unique_id=497855919 node_paths=PackedStringArray("feedback_objects")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_u7rvv")
+feedback_objects = [NodePath("FeedbackObject"), NodePath("FeedbackObject2")]
+
+[node name="FeedbackObject" parent="FeedbackManager" unique_id=182015901 instance=ExtResource("3_nejoa")]
+position = Vector2(260, 358)
+
+[node name="FeedbackObject2" parent="FeedbackManager" unique_id=286133388 instance=ExtResource("3_nejoa")]
+position = Vector2(892, 358)

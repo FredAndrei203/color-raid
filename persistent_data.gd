@@ -1,3 +1,6 @@
 class_name PersistentData extends Node
 
-static var high_score: int = 0
+var high_score: int = 0
+
+func save() -> Dictionary:
+	return { "high_score": high_score } # Keep it simple

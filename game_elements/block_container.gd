@@ -8,6 +8,7 @@ const MAXIMUM_COUNT: int = 7
 
 var block_pool: Array[ColorBlock]
 var block_queue: Array[ColorBlock]
+var initialized: bool = false
 
 
 func _supply_block() -> ColorBlock:
@@ -40,10 +41,14 @@ func dequeue_block() -> void:
 	$AnimationPlayer.play("move_down")
 
 func reset_container() -> void:
+	initialized = false
 	while !block_queue.is_empty():
 		dequeue_block()
 	position = Vector2.ZERO
 
 func initialize_lanes() -> void:
+	if initialized:
+		return
+	initialized = true
 	for level in range(MAXIMUM_COUNT):
 		enqueue_block()

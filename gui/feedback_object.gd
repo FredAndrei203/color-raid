@@ -1,25 +1,12 @@
-class_name FeedbackObject extends Node2D
+class_name FeedbackObject extends Marker2D
 
-signal feedback_conveyed(feedback: FeedbackObject)
+func _ready() -> void:
+	$AnimationPlayer.play("RESET")
 
-
-func display_feedback_correct(feedback: String) -> void:
-	show()
+func display_feedback(feedback: String, positive: bool) -> void:
 	$FeedbackLabel.text = feedback
-	$AnimationPlayer.play("show_feedback_correct")
-
-
-func display_feedback_wrong(feedback: String) -> void:
-	show()
-	$FeedbackLabel.text = feedback
-	$AnimationPlayer.play("show_feedback_wrong")
-
-
-func return_self() -> void:
-	hide()
-	$AnimationPlayer.stop()
-	feedback_conveyed.emit(self)
-
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	return_self()
+	$AnimationPlayer.play("RESET")
+	if positive:
+		$AnimationPlayer.play("show_feedback_right")
+	else:
+		$AnimationPlayer.play("show_feedback_wrong")

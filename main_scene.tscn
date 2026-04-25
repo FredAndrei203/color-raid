@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://bade2l6c2807g" path="res://main_scene.gd" id="1_2c62f"]
 [ext_resource type="PackedScene" uid="uid://blrn8jptflrvr" path="res://game_elements/color_lanes.tscn" id="2_nfk4m"]
 [ext_resource type="Script" uid="uid://bbj2iwiim83r1" path="res://game_elements/game_rule.gd" id="3_gyfs4"]
-[ext_resource type="PackedScene" uid="uid://d3arrs4qb60yq" path="res://game_elements/color_block.tscn" id="4_d5x1h"]
+[ext_resource type="PackedScene" uid="uid://ca32c7l1kpglf" path="res://game_elements/block_container.tscn" id="3_nfk4m"]
 [ext_resource type="Script" uid="uid://seidbpj41j2u" path="res://game_elements/controller.gd" id="5_8mm7a"]
-[ext_resource type="Script" uid="uid://dfvc3fr6jcvek" path="res://game_elements/block_container.gd" id="6_hq1ik"]
 [ext_resource type="PackedScene" uid="uid://brbuwqapckt76" path="res://gui/hud.tscn" id="7_nfk4m"]
 [ext_resource type="PackedScene" uid="uid://cwdp823hpoxtj" path="res://gui/main_menu_screen.tscn" id="8_66tet"]
 
@@ -15,9 +14,7 @@ script = ExtResource("1_2c62f")
 [node name="ColorLanes" parent="." unique_id=1867480858 instance=ExtResource("2_nfk4m")]
 visible = false
 
-[node name="BlockContainer" type="Node2D" parent="." unique_id=1738465778 node_paths=PackedStringArray("color_lanes")]
-script = ExtResource("6_hq1ik")
-block_scene = ExtResource("4_d5x1h")
+[node name="BlockContainer" parent="." unique_id=1069790177 node_paths=PackedStringArray("color_lanes") instance=ExtResource("3_nfk4m")]
 color_lanes = NodePath("../ColorLanes")
 
 [node name="GameRule" type="Node" parent="." unique_id=2007805828 node_paths=PackedStringArray("timer", "block_container")]

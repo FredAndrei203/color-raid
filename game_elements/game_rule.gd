@@ -16,7 +16,7 @@ var game_is_over: bool = false
 func _handle_reward() -> void:
 	score += 1
 	timer.start(timer.time_left + bonus_time)
-	bonus_time *= 0.75
+	bonus_time *= 0.90
 
 
 func _handle_punishment() -> void:

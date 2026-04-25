@@ -5,7 +5,7 @@
 
 [node name="ColorLanes" type="Node2D" unique_id=1867480858 node_paths=PackedStringArray("lanes", "play_lanes", "helper_lanes")]
 script = ExtResource("1_4r8i4")
-lanes = [NodePath("ColorLane1"), NodePath("ColorLane2"), NodePath("ColorLane3"), NodePath("LeftHelperLane"), NodePath("RightHelperLane")]
+lanes = [NodePath("LeftHelperLane"), NodePath("ColorLane1"), NodePath("ColorLane2"), NodePath("ColorLane3"), NodePath("RightHelperLane")]
 play_lanes = [NodePath("ColorLane1"), NodePath("ColorLane2"), NodePath("ColorLane3")]
 helper_lanes = [NodePath("LeftHelperLane"), NodePath("RightHelperLane")]
 
@@ -13,8 +13,11 @@ helper_lanes = [NodePath("LeftHelperLane"), NodePath("RightHelperLane")]
 position = Vector2(416, 550)
 color = 2
 
-[node name="Background" parent="LeftHelperLane" index="0" unique_id=535557440]
-visible = false
+[node name="Background" parent="LeftHelperLane" index="2" unique_id=535557440]
+color = Color(0, 0, 0, 1)
+
+[node name="Background2" parent="LeftHelperLane" index="3" unique_id=866746821]
+color = Color(0, 0, 0, 1)
 
 [node name="ColorLane1" parent="." unique_id=657357458 instance=ExtResource("2_dk1jk")]
 position = Vector2(496, 550)
@@ -30,8 +33,11 @@ color = 2
 [node name="RightHelperLane" parent="." unique_id=2108922341 instance=ExtResource("2_dk1jk")]
 position = Vector2(736, 550)
 
-[node name="Background" parent="RightHelperLane" index="0" unique_id=535557440]
-visible = false
+[node name="Background" parent="RightHelperLane" index="2" unique_id=535557440]
+color = Color(0, 0, 0, 1)
+
+[node name="Background2" parent="RightHelperLane" index="3" unique_id=866746821]
+color = Color(0, 0, 0, 1)
 
 [editable path="LeftHelperLane"]
 [editable path="RightHelperLane"]

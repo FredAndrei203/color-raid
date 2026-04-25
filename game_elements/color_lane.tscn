@@ -2,23 +2,121 @@
 
 [ext_resource type="Script" uid="uid://cc2l1qxn6gpyv" path="res://game_elements/color_lane.gd" id="1_vi2l6"]
 
+[sub_resource type="Animation" id="Animation_5y8rw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaneColor:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, 590)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaneColor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-40, -550)]
+}
+
+[sub_resource type="Animation" id="Animation_iv1h6"]
+resource_name = "shift_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaneColor:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 590), Vector2(80, 590)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaneColor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40, -550), Vector2(-40, -550)]
+}
+
+[sub_resource type="Animation" id="Animation_mtl5k"]
+resource_name = "shift_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaneColor:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 590), Vector2(80, 590)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaneColor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-40, -550), Vector2(-40, -550)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mtl5k"]
+_data = {
+&"RESET": SubResource("Animation_5y8rw"),
+&"shift_left": SubResource("Animation_iv1h6"),
+&"shift_right": SubResource("Animation_mtl5k")
+}
+
 [node name="ColorLane" type="Node2D" unique_id=959369704]
 script = ExtResource("1_vi2l6")
+
+[node name="PrevLaneColor" type="ColorRect" parent="." unique_id=1797530161]
+offset_left = -40.0
+offset_top = -550.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.30249536, 0.3024954, 0.3024954, 1)
+
+[node name="LaneColor" type="ColorRect" parent="." unique_id=109140709]
+offset_left = -40.0
+offset_top = -550.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Background" type="ColorRect" parent="." unique_id=535557440]
 offset_left = -40.0
 offset_top = -550.0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = -5.0
 color = Color(0.186459, 0.18645903, 0.18645903, 1)
 
-[node name="BottomColor" type="ColorRect" parent="." unique_id=109140709]
-offset_left = -40.0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="LaneColor" type="ColorRect" parent="." unique_id=1590416448]
-offset_left = -5.0
+[node name="Background2" type="ColorRect" parent="." unique_id=866746821]
+offset_left = 5.0
 offset_top = -550.0
-offset_right = 5.0
-offset_bottom = 40.0
+offset_right = 40.0
+color = Color(0.186459, 0.18645903, 0.18645903, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1518178224]
+libraries/ = SubResource("AnimationLibrary_mtl5k")

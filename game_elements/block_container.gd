@@ -14,7 +14,7 @@ func _supply_block() -> ColorBlock:
 	var block: ColorBlock
 	if block_pool.is_empty():
 		block = block_scene.instantiate()
-		add_child(block)
+		$Animatable2D.add_child(block)
 	else:
 		block = block_pool.pop_back()
 		block.show()
@@ -36,6 +36,8 @@ func dequeue_block() -> void:
 	block_pool.append(block)
 	block.hide()
 	position.y += ONE_LVL
+	$AnimationPlayer.play("RESET")
+	$AnimationPlayer.play("move_down")
 
 func reset_container() -> void:
 	while !block_queue.is_empty():

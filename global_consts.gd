@@ -7,3 +7,7 @@ const COLORS: Array[Color] = [
 		Color.GREEN,
 		Color.BLUE
 ]
+
+const DEFAULT_BONUS_TIME: float = 5
+const DEFAULT_PENALTY_TIME: float = 1
+const DEFAULT_TIMER_LENGTH: float = 30

@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cwdp823hpoxtj"]
+
+[ext_resource type="Script" uid="uid://ckk4vo10wdg5i" path="res://gui/main_menu_screen.gd" id="1_4denh"]
+
+[node name="MainMenuScreen" type="Control" unique_id=1782767518]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4denh")
+
+[node name="MainMenuScreen" type="Panel" parent="." unique_id=1674183403]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuCont" type="BoxContainer" parent="MainMenuScreen" unique_id=1771045225]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -42.5
+offset_right = 111.0
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+vertical = true
+
+[node name="TitleLabel" type="Label" parent="MainMenuScreen/MenuCont" unique_id=143665724]
+layout_mode = 2
+text = "Color Raid"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighscoreLabel" type="Label" parent="MainMenuScreen/MenuCont" unique_id=414476630]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Highscore: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainMenuScreen/MenuCont" unique_id=1049304204]
+layout_mode = 2
+text = "Play Button"
+
+[node name="GameOverCont" type="BoxContainer" parent="MainMenuScreen" unique_id=625965125]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -155.0
+offset_right = 111.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+vertical = true
+
+[node name="TitleLabel" type="Label" parent="MainMenuScreen/GameOverCont" unique_id=483282104]
+layout_mode = 2
+text = "Game over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LastScoreLabel" type="Label" parent="MainMenuScreen/GameOverCont" unique_id=886493909]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MainMenuScreen/MenuCont/PlayButton" to="." method="_on_play_button_pressed"]

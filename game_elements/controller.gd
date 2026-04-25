@@ -1,8 +1,7 @@
 class_name Controller extends Node
 
 @export var game_rule: GameRule
-
-@export var lanes: Array[ColorLane]
+@export var color_lanes: ColorLanes
 
 var enabled: bool = false
 
@@ -23,9 +22,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func shift_lanes(event: InputEvent) -> void:
 	if event.is_action("shift_left"):
-		for lane in lanes:
+		for lane in color_lanes.lanes:
 			lane.colorshift_left()
 	else:
-		for lane in lanes:
+		for lane in color_lanes.lanes:
 			lane.colorshift_right()
 	game_rule.judge_current_state(event)

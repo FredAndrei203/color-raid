@@ -4,13 +4,11 @@ const ONE_LVL: float = 80
 const MAXIMUM_COUNT: int = 7
 
 @export var block_scene: PackedScene
-@export var lanes: Array[ColorLane]
+@export var color_lanes: ColorLanes
 
-var block_deployment_count: int
 var block_pool: Array[ColorBlock]
+var block_queue: Array[ColorBlock]
 
-func bring_down_blocks() -> void:
-	position.y += ONE_LVL
 
 func _supply_block() -> ColorBlock:
 	var block: ColorBlock
@@ -22,15 +20,28 @@ func _supply_block() -> ColorBlock:
 		block.show()
 	return block
 
-func add_block() -> ColorBlock:
+func enqueue_block() -> void:
 	var block: ColorBlock = _supply_block()
+	var lanes: Array[ColorLane] = color_lanes.play_lanes
 	block.color_lane = lanes[randi() % lanes.size()]
 	block.color = (randi() % GlobalConsts.Colors.size())
-	var level: Vector2 = Vector2(0, ONE_LVL * block_deployment_count)
-	block.position = block.color_lane.position - level
-	block_deployment_count += 1
-	return block
+	var offset: float = ONE_LVL * block_queue.size()
+	var level: Vector2 = Vector2(0, offset)
+	block.global_position = block.color_lane.global_position - level
+	block_queue.append(block)
 
-func return_block(block: ColorBlock) -> void:
+
+func dequeue_block() -> void:
+	var block: ColorBlock = block_queue.pop_front()
 	block_pool.append(block)
 	block.hide()
+	position.y += ONE_LVL
+
+func reset_container() -> void:
+	while !block_queue.is_empty():
+		dequeue_block()
+	position = Vector2.ZERO
+
+func initialize_lanes() -> void:
+	for level in range(MAXIMUM_COUNT):
+		enqueue_block()

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://blrn8jptflrvr"]
+
+[ext_resource type="Script" uid="uid://cyjgqcomw5rr3" path="res://game_elements/color_lanes.gd" id="1_4r8i4"]
+[ext_resource type="PackedScene" uid="uid://df7o0wch4gjiq" path="res://game_elements/color_lane.tscn" id="2_dk1jk"]
+
+[node name="ColorLanes" type="Node2D" unique_id=1867480858 node_paths=PackedStringArray("lanes", "play_lanes", "helper_lanes")]
+script = ExtResource("1_4r8i4")
+lanes = [NodePath("ColorLane1"), NodePath("ColorLane2"), NodePath("ColorLane3"), NodePath("LeftHelperLane"), NodePath("RightHelperLane")]
+play_lanes = [NodePath("ColorLane1"), NodePath("ColorLane2"), NodePath("ColorLane3")]
+helper_lanes = [NodePath("LeftHelperLane"), NodePath("RightHelperLane")]
+
+[node name="LeftHelperLane" parent="." unique_id=959369704 instance=ExtResource("2_dk1jk")]
+position = Vector2(416, 550)
+color = 2
+
+[node name="Background" parent="LeftHelperLane" index="0" unique_id=535557440]
+visible = false
+
+[node name="ColorLane1" parent="." unique_id=657357458 instance=ExtResource("2_dk1jk")]
+position = Vector2(496, 550)
+
+[node name="ColorLane2" parent="." unique_id=210514574 instance=ExtResource("2_dk1jk")]
+position = Vector2(576, 550)
+color = 1
+
+[node name="ColorLane3" parent="." unique_id=700673801 instance=ExtResource("2_dk1jk")]
+position = Vector2(656, 550)
+color = 2
+
+[node name="RightHelperLane" parent="." unique_id=2108922341 instance=ExtResource("2_dk1jk")]
+position = Vector2(736, 550)
+
+[node name="Background" parent="RightHelperLane" index="0" unique_id=535557440]
+visible = false
+
+[editable path="LeftHelperLane"]
+[editable path="RightHelperLane"]

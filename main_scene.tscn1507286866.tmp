@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://seidbpj41j2u" path="res://game_elements/controller.gd" id="5_8mm7a"]
 [ext_resource type="Script" uid="uid://dfvc3fr6jcvek" path="res://game_elements/block_container.gd" id="6_hq1ik"]
 [ext_resource type="PackedScene" uid="uid://brbuwqapckt76" path="res://gui/hud.tscn" id="7_nfk4m"]
-[ext_resource type="PackedScene" uid="uid://cwdp823hpoxtj" path="res://gui/main_menu_screen.tscn" id="8_66tet"]
 
 [node name="MainScene" type="Node" unique_id=823844910]
 script = ExtResource("1_2c62f")
@@ -15,18 +14,19 @@ script = ExtResource("1_2c62f")
 [node name="ColorLanes" parent="." unique_id=1867480858 instance=ExtResource("2_nfk4m")]
 visible = false
 
-[node name="GameRule" type="Node" parent="." unique_id=2007805828 node_paths=PackedStringArray("timer")]
+[node name="GameRule" type="Node" parent="." unique_id=2007805828 node_paths=PackedStringArray("block_cont", "timer")]
 script = ExtResource("3_gyfs4")
+block_cont = NodePath("../BlockContainer")
 timer = NodePath("../Timer")
-
-[node name="BlockContainer" type="Node2D" parent="GameRule" unique_id=1738465778 node_paths=PackedStringArray("color_lanes")]
-script = ExtResource("6_hq1ik")
-block_scene = ExtResource("4_d5x1h")
-color_lanes = NodePath("../../ColorLanes")
 
 [node name="Controller" type="Node" parent="." unique_id=814559284 node_paths=PackedStringArray("game_rule", "color_lanes")]
 script = ExtResource("5_8mm7a")
 game_rule = NodePath("../GameRule")
+color_lanes = NodePath("../ColorLanes")
+
+[node name="BlockContainer" type="Node2D" parent="." unique_id=1738465778 node_paths=PackedStringArray("color_lanes")]
+script = ExtResource("6_hq1ik")
+block_scene = ExtResource("4_d5x1h")
 color_lanes = NodePath("../ColorLanes")
 
 [node name="Timer" type="Timer" parent="." unique_id=727377318]
@@ -34,11 +34,8 @@ wait_time = 30.0
 one_shot = true
 
 [node name="HUD" parent="." unique_id=682855949 instance=ExtResource("7_nfk4m")]
-visible = false
-
-[node name="MainMenuScreen" parent="." unique_id=1782767518 instance=ExtResource("8_66tet")]
 
 [connection signal="game_ended" from="GameRule" to="." method="_on_game_rule_game_ended"]
 [connection signal="score_updated" from="GameRule" to="." method="_on_game_rule_score_updated"]
 [connection signal="timeout" from="Timer" to="GameRule" method="_on_timer_timeout"]
-[connection signal="game_started" from="MainMenuScreen" to="." method="_on_main_menu_screen_game_started"]
+[connection signal="game_started" from="HUD" to="." method="_on_hud_game_started"]

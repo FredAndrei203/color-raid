@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://cwdp823hpoxtj"]
 
 [ext_resource type="Script" uid="uid://ckk4vo10wdg5i" path="res://gui/main_menu_screen.gd" id="1_4denh"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4denh"]
-load_path = "res://.godot/imported/tutorial.png-89f38b20d1b01c64cbb17791479bd4e3.ctex"
+[ext_resource type="Texture2D" uid="uid://c5xcrae8oc6fa" path="res://tutorial.png" id="2_o333h"]
 
 [node name="MainMenuScreen" type="Control" unique_id=1782767518]
 layout_mode = 3
@@ -114,7 +112,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CompressedTexture2D_4denh")
+texture = ExtResource("2_o333h")
 expand_mode = 1
 stretch_mode = 5
 

@@ -3,6 +3,7 @@ class_name PersistentData extends Node
 var high_score: int = 0
 var max_combo: int = 0
 
+
 func save() -> Dictionary:
 	var data_dict: Dictionary = {
 		"high_score": high_score,

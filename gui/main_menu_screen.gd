@@ -12,6 +12,12 @@ func display_high_score(high_score: String) -> void:
 	%HighscoreLabel.text = "Highscore: " + high_score
 
 
+func display_max_combo(max_combo: String) -> void:
+	%MaxComboLabel.text = "Max Combo: " + max_combo
+
+func display_session_combo(max_combo: String) -> void:
+	%LastMaxComboLabel.text = "Session Max Combo: " + max_combo
+
 func _on_play_button_pressed() -> void:
 	game_started.emit()
 

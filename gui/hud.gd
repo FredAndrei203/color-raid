@@ -9,5 +9,9 @@ func display_score(score: String) -> void:
 	%ScoreLabel.text = score
 
 
+func display_combo(combo: String) -> void:
+	%ComboLabel.text = combo
+
+
 func show_feedback(positive: bool) -> void:
 	$FeedbackManager.show_feedback(positive)

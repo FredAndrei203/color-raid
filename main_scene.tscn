@@ -40,6 +40,7 @@ visible = false
 [node name="PersistentData" type="Node" parent="." unique_id=2047920288]
 script = ExtResource("8_7ycvg")
 
+[connection signal="combo_updated" from="GameRule" to="." method="_on_game_rule_combo_updated"]
 [connection signal="game_ended" from="GameRule" to="." method="_on_game_rule_game_ended"]
 [connection signal="player_was_correct" from="GameRule" to="." method="_on_game_rule_player_was_correct"]
 [connection signal="score_updated" from="GameRule" to="." method="_on_game_rule_score_updated"]

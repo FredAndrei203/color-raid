@@ -53,7 +53,7 @@ func initialize_lanes() -> void:
 	for level in range(MAXIMUM_COUNT):
 		enqueue_block()
 	
-	var spare_block: ColorBlock = _supply_block()
-	$Animatable2D.add_child(spare_block)
-	spare_block.deflate_block()
-	block_pool.append(spare_block)
+	for times in range(10):
+		var spare_block: ColorBlock = _supply_block()
+		spare_block.deflate_block()
+		block_pool.append(spare_block)

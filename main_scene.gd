@@ -11,16 +11,18 @@ func _ready() -> void:
 	
 	if json.parse(json_string) == OK:
 		var data = json.data
-		$PersistentData.high_score = data["high_score"]
-		$MainMenuScreen.display_high_score(str(data["high_score"]))
-	else:
-		print("ERROR PARSING JSON")
+		$PersistentData.load_data(data)
+	
+	_update_menu_ui()
 
 
 func _process(_delta: float) -> void:
 	var time_left: float = $Timer.time_left
 	$HUD.display_time_left("%.2f" %time_left)
 
+func _update_menu_ui() -> void:
+	$MainMenuScreen.display_high_score(str($PersistentData.high_score))
+	$MainMenuScreen.display_max_combo(str($PersistentData.max_combo))
 
 func start_game() -> void:
 	$ColorLanes.show()
@@ -41,9 +43,15 @@ func game_ended() -> void:
 	if $GameRule.score > $PersistentData.high_score:
 		$PersistentData.high_score = $GameRule.score
 	
+	#Set new max combo
+	if $GameRule.current_max_combo > $PersistentData.max_combo:
+		$PersistentData.max_combo = $GameRule.current_max_combo
+	
 	#Show score and highscore
 	$MainMenuScreen.display_score(str($GameRule.score))
+	$MainMenuScreen.display_session_combo(str($GameRule.current_max_combo))
 	$MainMenuScreen.display_high_score(str($PersistentData.high_score))
+	$MainMenuScreen.display_max_combo(str($PersistentData.max_combo))
 	
 	# Save persistent data
 	save_game()
@@ -51,7 +59,9 @@ func game_ended() -> void:
 func save_game() -> void:
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var node_data = $PersistentData.save()
-	save_file.store_line(JSON.stringify(node_data))
+	var json_string = JSON.stringify(node_data)
+	save_file.store_line(json_string)
+
 
 func _on_game_rule_score_updated(score: int) -> void:
 	$HUD.display_score(str(score))
@@ -67,3 +77,7 @@ func _on_main_menu_screen_game_started() -> void:
 
 func _on_game_rule_player_was_correct(correct: bool) -> void:
 	$HUD.show_feedback(correct)
+
+
+func _on_game_rule_combo_updated(combo: int) -> void:
+	$HUD.display_combo(str(combo))

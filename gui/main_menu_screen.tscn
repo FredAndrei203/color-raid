@@ -50,6 +50,13 @@ text = "Highscore: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MaxComboLabel" type="Label" parent="MainMenuScreen/MenuCont" unique_id=1609687399]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Max Combo: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PlayButton" type="Button" parent="MainMenuScreen/MenuCont" unique_id=1049304204]
 layout_mode = 2
 text = "Play"
@@ -87,6 +94,13 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LastMaxComboLabel" type="Label" parent="MainMenuScreen/GameOverCont" unique_id=2029831147]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Session Max Combo: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 

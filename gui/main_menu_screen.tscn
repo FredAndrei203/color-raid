@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cwdp823hpoxtj"]
 
 [ext_resource type="Script" uid="uid://ckk4vo10wdg5i" path="res://gui/main_menu_screen.gd" id="1_4denh"]
+[ext_resource type="Texture2D" uid="uid://c5xcrae8oc6fa" path="res://tutorial.png" id="2_o333h"]
 
 [node name="MainMenuScreen" type="Control" unique_id=1782767518]
 layout_mode = 3
@@ -53,6 +54,10 @@ vertical_alignment = 1
 layout_mode = 2
 text = "Play"
 
+[node name="TutorialButton" type="Button" parent="MainMenuScreen/MenuCont" unique_id=1360570214]
+layout_mode = 2
+text = "How to play"
+
 [node name="GameOverCont" type="BoxContainer" parent="MainMenuScreen" unique_id=625965125]
 unique_name_in_owner = true
 visible = false
@@ -85,4 +90,18 @@ text = "Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TutorialTexture" type="TextureRect" parent="." unique_id=598234374]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_o333h")
+expand_mode = 1
+stretch_mode = 5
+
 [connection signal="pressed" from="MainMenuScreen/MenuCont/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenuScreen/MenuCont/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="gui_input" from="TutorialTexture" to="." method="_on_tutorial_texture_gui_input"]

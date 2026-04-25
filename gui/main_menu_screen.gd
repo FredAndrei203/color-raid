@@ -14,3 +14,13 @@ func display_high_score(high_score: String) -> void:
 
 func _on_play_button_pressed() -> void:
 	game_started.emit()
+
+
+func _on_tutorial_button_pressed() -> void:
+	$TutorialTexture.show()
+
+
+func _on_tutorial_texture_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			$TutorialTexture.hide()

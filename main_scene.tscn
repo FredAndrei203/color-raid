@@ -37,6 +37,8 @@ visible = false
 [node name="MainMenuScreen" parent="." unique_id=1782767518 instance=ExtResource("8_66tet")]
 
 [connection signal="game_ended" from="GameRule" to="." method="_on_game_rule_game_ended"]
+[connection signal="player_was_correct" from="GameRule" to="." method="_on_game_rule_player_was_correct"]
+[connection signal="player_was_wrong" from="GameRule" to="." method="_on_game_rule_player_was_wrong"]
 [connection signal="score_updated" from="GameRule" to="." method="_on_game_rule_score_updated"]
 [connection signal="timeout" from="Timer" to="GameRule" method="_on_timer_timeout"]
 [connection signal="game_started" from="MainMenuScreen" to="." method="_on_main_menu_screen_game_started"]

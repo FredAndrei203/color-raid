@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://brbuwqapckt76"]
 
 [ext_resource type="Script" uid="uid://bafthm0l7heun" path="res://gui/hud.gd" id="1_350da"]
+[ext_resource type="Script" uid="uid://c2e2we8qoehlc" path="res://gui/feedback_manager.gd" id="2_u7rvv"]
+[ext_resource type="PackedScene" uid="uid://ckpvjrmb2lhlu" path="res://gui/feedback_object.tscn" id="3_nejoa"]
 
 [node name="HUD" type="Control" unique_id=682855949]
 layout_mode = 3
@@ -84,3 +86,17 @@ theme_override_font_sizes/font_size = 46
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FeedbackManager" type="Node" parent="." unique_id=316397675 node_paths=PackedStringArray("feedback_area")]
+script = ExtResource("2_u7rvv")
+feedbck_scene = ExtResource("3_nejoa")
+feedback_area = NodePath("FeedbackArea")
+
+[node name="FeedbackArea" type="Control" parent="FeedbackManager" unique_id=946268253]
+layout_mode = 3
+anchor_left = 0.3
+anchor_top = 0.2
+anchor_right = 0.7
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2

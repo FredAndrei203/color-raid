@@ -38,3 +38,11 @@ func _on_game_rule_game_ended() -> void:
 
 func _on_main_menu_screen_game_started() -> void:
 	start_game()
+
+
+func _on_game_rule_player_was_correct() -> void:
+	$HUD.show_positive_feedback()
+
+
+func _on_game_rule_player_was_wrong() -> void:
+	$HUD.show_negative_feedback()

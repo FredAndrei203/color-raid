@@ -28,12 +28,12 @@ func start_game() -> void:
 	$ColorLanes.show()
 	$HUD.show()
 	$MainMenuScreen.hide()
-	$Controller.enabled = true
+	Controller.enabled = true
 	$GameRule.start_level()
 
 
 func game_ended() -> void:
-	$Controller.enabled = false
+	Controller.enabled = false
 	$ColorLanes.reset_lanes()
 	$ColorLanes.hide()
 	$HUD.hide()

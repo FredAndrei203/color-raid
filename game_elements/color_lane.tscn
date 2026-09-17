@@ -98,6 +98,7 @@ offset_left = -40.0
 offset_top = -550.0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 color = Color(0.30249536, 0.3024954, 0.3024954, 1)
 
 [node name="LaneColor" type="ColorRect" parent="." unique_id=109140709]
@@ -105,17 +106,20 @@ offset_left = -40.0
 offset_top = -550.0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Background" type="ColorRect" parent="." unique_id=535557440]
 offset_left = -40.0
 offset_top = -550.0
 offset_right = -5.0
+mouse_filter = 2
 color = Color(0.186459, 0.18645903, 0.18645903, 1)
 
 [node name="Background2" type="ColorRect" parent="." unique_id=866746821]
 offset_left = 5.0
 offset_top = -550.0
 offset_right = 40.0
+mouse_filter = 2
 color = Color(0.186459, 0.18645903, 0.18645903, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1518178224]

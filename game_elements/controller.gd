@@ -3,28 +3,40 @@ class_name Controller extends Node
 @export var game_rule: GameRule
 @export var color_lanes: ColorLanes
 
-var enabled: bool = false
+static var enabled: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !enabled:
 		return
-	var shifting_event: bool = (
-			event.is_action_pressed("shift_left") or
-			event.is_action_pressed("shift_right")
-	)
-	var input_event: bool = (
-			event.is_action_pressed("keep_colors")
-	)
-	if shifting_event:
-		shift_lanes(event)
-	elif input_event:
-		game_rule.judge_current_state(event)
+	var input_direction: Vector2 = get_input_direction(event)
+	if input_direction:
+		shift_colors(input_direction)
+	
 
-func shift_lanes(event: InputEvent) -> void:
-	if event.is_action("shift_left"):
+
+func get_input_direction(event: InputEvent) -> Vector2:
+	var direction: Vector2
+	if Input.is_action_just_pressed("shift_left"):
+		direction = Vector2.LEFT
+	elif Input.is_action_just_pressed("shift_right"):
+		direction = Vector2.RIGHT
+	elif Input.is_action_just_pressed("keep_colors"):
+		direction = Vector2.DOWN
+	print(direction)
+	return direction
+
+
+func shift_colors(dir: Vector2) -> void:
+	if Vector2.LEFT == dir:
 		for lane in color_lanes.lanes:
 			lane.colorshift_left()
-	else:
+		print("LEFT")
+		game_rule.judge_current_state()
+	elif Vector2.RIGHT == dir:
 		for lane in color_lanes.lanes:
 			lane.colorshift_right()
-	game_rule.judge_current_state(event)
+		print("RIGHT")
+		game_rule.judge_current_state()
+	elif Vector2.DOWN == dir:
+		print("DOWN")
+		game_rule.judge_current_state()

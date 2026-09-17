@@ -51,7 +51,7 @@ func start_level() -> void:
 	timer.start(GlobalConsts.DEFAULT_TIMER_LENGTH)
 
 
-func judge_current_state(event: InputEvent) -> void:
+func judge_current_state() -> void:
 	var block: ColorBlock = block_container.block_queue.front()
 	if block.color == block.color_lane.color:
 		_handle_reward()

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://blrn8jptflrvr" path="res://game_elements/color_lanes.tscn" id="2_nfk4m"]
 [ext_resource type="Script" uid="uid://bbj2iwiim83r1" path="res://game_elements/game_rule.gd" id="3_gyfs4"]
 [ext_resource type="PackedScene" uid="uid://ca32c7l1kpglf" path="res://game_elements/block_container.tscn" id="3_nfk4m"]
+[ext_resource type="Script" uid="uid://dnkmh81omfpac" path="res://touch_controller.gd" id="5_7ycvg"]
 [ext_resource type="Script" uid="uid://seidbpj41j2u" path="res://game_elements/controller.gd" id="5_8mm7a"]
 [ext_resource type="PackedScene" uid="uid://brbuwqapckt76" path="res://gui/hud.tscn" id="7_nfk4m"]
 [ext_resource type="Script" uid="uid://cycp34nc8fxwu" path="res://persistent_data.gd" id="8_7ycvg"]
@@ -22,6 +23,12 @@ color_lanes = NodePath("../ColorLanes")
 script = ExtResource("3_gyfs4")
 timer = NodePath("../Timer")
 block_container = NodePath("../BlockContainer")
+
+[node name="TouchController" type="Node" parent="." unique_id=319316528 node_paths=PackedStringArray("game_rule", "color_lanes")]
+script = ExtResource("5_7ycvg")
+game_rule = NodePath("../GameRule")
+color_lanes = NodePath("../ColorLanes")
+metadata/_custom_type_script = "uid://seidbpj41j2u"
 
 [node name="Controller" type="Node" parent="." unique_id=814559284 node_paths=PackedStringArray("game_rule", "color_lanes")]
 script = ExtResource("5_8mm7a")

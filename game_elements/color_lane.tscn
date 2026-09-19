@@ -14,7 +14,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(80, 590)]
+"values": [Vector2(80, 1012)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -26,7 +26,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-40, -550)]
+"values": [Vector2(-40, -972)]
 }
 
 [sub_resource type="Animation" id="Animation_iv1h6"]
@@ -41,7 +41,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.03),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 590), Vector2(80, 590)]
+"values": [Vector2(0, 1012), Vector2(80, 1012)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -53,7 +53,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.03),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(40, -550), Vector2(-40, -550)]
+"values": [Vector2(40, -972), Vector2(-40, -972)]
 }
 
 [sub_resource type="Animation" id="Animation_mtl5k"]
@@ -68,7 +68,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.03),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 590), Vector2(80, 590)]
+"values": [Vector2(0, 1012), Vector2(80, 1012)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -80,7 +80,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.03),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-40, -550), Vector2(-40, -550)]
+"values": [Vector2(-40, -972), Vector2(-40, -972)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mtl5k"]
@@ -95,7 +95,7 @@ script = ExtResource("1_vi2l6")
 
 [node name="PrevLaneColor" type="ColorRect" parent="." unique_id=1797530161]
 offset_left = -40.0
-offset_top = -550.0
+offset_top = -972.0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
@@ -103,21 +103,21 @@ color = Color(0.30249536, 0.3024954, 0.3024954, 1)
 
 [node name="LaneColor" type="ColorRect" parent="." unique_id=109140709]
 offset_left = -40.0
-offset_top = -550.0
+offset_top = -972.0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="Background" type="ColorRect" parent="." unique_id=535557440]
 offset_left = -40.0
-offset_top = -550.0
+offset_top = -972.0
 offset_right = -5.0
 mouse_filter = 2
 color = Color(0.186459, 0.18645903, 0.18645903, 1)
 
 [node name="Background2" type="ColorRect" parent="." unique_id=866746821]
 offset_left = 5.0
-offset_top = -550.0
+offset_top = -972.0
 offset_right = 40.0
 mouse_filter = 2
 color = Color(0.186459, 0.18645903, 0.18645903, 1)

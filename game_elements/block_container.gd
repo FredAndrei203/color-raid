@@ -1,7 +1,7 @@
 class_name BlockContainer extends Node2D
 
 const ONE_LVL: float = 80
-const MAXIMUM_COUNT: int = 7
+const MAXIMUM_COUNT: int = 11
 
 @export var block_scene: PackedScene
 @export var color_lanes: ColorLanes

@@ -1,5 +1,7 @@
 class_name MainScene extends Node
 
+@export var color_lanes: ColorLanes
+
 func _ready() -> void:
 	if not FileAccess.file_exists("user://savegame.save"):
 		print("NO SAVE FILE EXISTS")
@@ -25,7 +27,7 @@ func _update_menu_ui() -> void:
 	$MainMenuScreen.display_max_combo(str($PersistentData.max_combo))
 
 func start_game() -> void:
-	$ColorLanes.show()
+	color_lanes.show()
 	$HUD.show()
 	$MainMenuScreen.hide()
 	Controller.enabled = true
@@ -34,8 +36,8 @@ func start_game() -> void:
 
 func game_ended() -> void:
 	Controller.enabled = false
-	$ColorLanes.reset_lanes()
-	$ColorLanes.hide()
+	color_lanes.reset_lanes()
+	color_lanes.hide()
 	$HUD.hide()
 	$MainMenuScreen.show()
 	

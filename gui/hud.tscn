@@ -86,6 +86,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 46
 text = "0"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ComboTitleLabel" type="Label" parent="." unique_id=1201179068]
@@ -128,7 +129,10 @@ script = ExtResource("2_u7rvv")
 feedback_objects = [NodePath("FeedbackObject"), NodePath("FeedbackObject2")]
 
 [node name="FeedbackObject" parent="FeedbackManager" unique_id=182015901 instance=ExtResource("3_nejoa")]
-position = Vector2(260, 358)
+position = Vector2(89, 461)
 
-[node name="FeedbackObject2" parent="FeedbackManager" unique_id=286133388 instance=ExtResource("3_nejoa")]
-position = Vector2(892, 358)
+[node name="FeedbackObject2" parent="FeedbackManager" unique_id=1620356442 instance=ExtResource("3_nejoa")]
+position = Vector2(511, 461)
+
+[editable path="FeedbackManager/FeedbackObject"]
+[editable path="FeedbackManager/FeedbackObject2"]
